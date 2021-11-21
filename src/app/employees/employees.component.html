@@ -1,0 +1,26 @@
+<table *ngIf="employees.length > 0 && !isLoading" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col" colspan="3">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees; index as id">
+            <th scope="row">{{ id + 1 }}</th>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.age }}</td>
+            <td><a routerLink="/employees/{{ employee.id }}">View</a></td>
+            <td><a routerLink="/employees/{{ employee.id }}/update">Update</a></td>
+            <td><a href="#" (click)="onDelete(employee.id)">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="employees.length > 0 && !isLoading && canLoad" class="d-flex justify-content-center">
+    <button class="btn btn-secondary" (click)="onLoad()" [disabled]="btnDisabled">{{ btnDisabled ? "Loading..." : "Load More..."}}</button>
+</div>
+<h1 *ngIf="employees.length === 0 && !isLoading" class="text-center">No Data.</h1>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

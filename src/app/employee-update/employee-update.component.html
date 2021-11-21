@@ -1,0 +1,27 @@
+<form *ngIf="!isLoading" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-4">
+        <label for="name" class="form-label">Name<span class="required">*</span></label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="!form.controls['name'].valid && form.controls['name'].touched" class="invalid-message">
+            This field is required.
+        </div>
+    </div>
+    <div class="form-group mb-4">
+        <label for="salary" class="form-label">Salary<span class="required">*</span></label>
+        <input type="number" class="form-control" id="salary" formControlName="salary">
+        <div *ngIf="!form.controls['salary'].valid && form.controls['salary'].touched" class="invalid-message">
+            This field is required.
+        </div>
+    </div>
+    <div class="form-group mb-5">
+        <label for="age" class="form-label">Age<span class="required">*</span></label>
+        <input type="number" class="form-control" id="age" formControlName="age">
+        <div *ngIf="!form.controls['age'].valid && form.controls['age'].touched" class="invalid-message">
+            This field is required.
+        </div>
+    </div>
+    <div class="d-grid pt-1">
+        <button class="btn btn-success py-2" [disabled]="!form.valid">Update</button>
+    </div>
+</form>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

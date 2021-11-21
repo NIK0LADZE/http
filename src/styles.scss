@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+form {
+  .form-group {
+    position: relative;
+    .ng-touched {
+      &.ng-invalid {
+        border-color: red;
+      }
+      &.ng-valid {
+        border-color: green;
+      }
+    }
+    .invalid-message {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      color: red;
+      font-size: 0.875em;
+    }
+    .required {
+      color: red;
+    }
+  }
+}

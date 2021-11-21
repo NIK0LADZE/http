@@ -1,0 +1,9 @@
+<div *ngIf="!isLoading">
+    <h1 class="text-center">Hello {{ employee.name }}, {{ employee.age }} <br>
+    Your salary is: {{ employee.salary | currency }}</h1>
+    <div class="d-flex gap-2 justify-content-center">
+        <button class="btn btn-primary" (click)="updateHandler(employee.id)">Update</button>
+        <button class="btn btn-danger" (click)="onDelete(employeeId)">Delete</button>
+    </div>
+</div>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
